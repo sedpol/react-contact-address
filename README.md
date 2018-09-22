@@ -1,3 +1,5 @@
+### `npm instal`
+to install node in your local
 
 ### `npm start`
 
