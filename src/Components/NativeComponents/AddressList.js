@@ -3,37 +3,35 @@ import Address from './Address/Address';
 import Header from './Address/Header';
 import Detail from './Address/Detail';
 import Auxiliary from '../../hoc/Auxiliary';
+import TableTitle from '../Common/TableTitle';
 
 class AddressList extends Component {
     constructor() {
         super();
         this.state = {
-            detail: null
+            data: null
         };
     }
     showDetailHandler(id) {
         const address = this.props.addressList[id];
 
         this.setState({
-            detail: address
+            data: address
         });
     }
 
     hideDetailHandler = () => {
         this.setState({
-            detail: null
+            data: null
         });
     }
 
     render() {
         return (
             <Auxiliary>
-                <div>
-                    <h1 style={{ textAlign: 'center'}} >Customer Address List</h1>
-                </div>
-                <table style={{ borderCollapse: 'collapse', width: '100%' }} >
-                    <Detail data={this.state.detail} hideDetail = {this.hideDetailHandler} />
-                </table>
+                <TableTitle />
+                <Detail data={this.state.data} hideDetail={this.hideDetailHandler} />
+
                 <table style={{ borderCollapse: 'collapse', width: '100%' }} >
                     <Header />
                     {
