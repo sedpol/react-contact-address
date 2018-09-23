@@ -15,12 +15,11 @@ class MdAddress extends Component {
     render() {
         return (
             <Auxiliary>
-
                 <TableRow key={this.props.key}>
                     <TableColumn>
                         <Button raised onClick={this.handleShowDialog}>
                             Detail
-                            </Button>
+                        </Button>
                     </TableColumn>
                     <TableColumn>{this.props.address.username}</TableColumn>
                     <TableColumn>{this.props.address.name}</TableColumn>

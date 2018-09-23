@@ -8,12 +8,12 @@ const detail = (props) => {
     }
 
     return (
-        <table style={{ borderCollapse: 'collapse', width: '100%' }} >
-            <tbody className={classes.Detail}>
-                <AddressDetail data={props.data} />
+        <div className={classes.Detail}>
+            <AddressDetail data={props.data} />
+            <div>
                 <button onClick={props.hideDetail} >close</button>
-            </tbody>
-        </table>
+            </div>
+        </div>
     );
 }
 

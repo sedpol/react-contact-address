@@ -43,6 +43,7 @@ class MdAddressList extends Component {
                 <div>
                     <DialogContainer
                         id="simple-list-dialog"
+                        title=""
                         visible={visible}
                         onHide={this.hide} >
                         <Card style={{ maxWidth: 800 }} className="md-block-centered">
