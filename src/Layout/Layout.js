@@ -9,13 +9,14 @@ import AddressList from '../Components/NativeComponents/AddressList';
 import MdAddressList from '../Components/ReactMDComponents/MdAddressList';
 import SuiAddressList from '../Components/SymanticUIComponents/SuiAddressList';
 import { AddressService } from '../Services/AddressServices';
+import AdAddressList from '../Components/AntDesignComponents/AdAddressList';
 
 class Layout extends Component {
 
     constructor() {
         super();
         this.state = {
-            mode: 'sui',
+            mode: 'ad',
             addressList: []
         };
         this.addressService = new AddressService();
@@ -39,7 +40,8 @@ class Layout extends Component {
             { label: 'Native', value: 'nt' },
             { label: 'PrimeReact', value: 'pr' },
             { label: 'React MD', value: 'md' },
-            { label: 'Semantic UI', value: 'sui' }
+            { label: 'Semantic UI', value: 'sui' },
+            { label: 'Ant Design', value: 'ad' }
         ];
 
         let dataTable = "";
@@ -62,6 +64,11 @@ class Layout extends Component {
             dataTable =
                 <div>
                     <SuiAddressList addressList={this.state.addressList} />
+                </div>
+        } else if (this.state.mode === 'ad') {
+            dataTable =
+                <div>
+                    <AdAddressList addressList={this.state.addressList} />
                 </div>
         }
 
