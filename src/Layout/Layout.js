@@ -7,6 +7,7 @@ import Auxiliary from '../hoc/Auxiliary';
 import PrAddress from '../Components/PrimeComponents/PrAddress';
 import AddressList from '../Components/NativeComponents/AddressList';
 import MdAddressList from '../Components/ReactMDComponents/MdAddressList';
+import SuiAddressList from '../Components/SymanticUIComponents/SuiAddressList';
 import { AddressService } from '../Services/AddressServices';
 
 class Layout extends Component {
@@ -14,7 +15,7 @@ class Layout extends Component {
     constructor() {
         super();
         this.state = {
-            mode: 'nt',
+            mode: 'sui',
             addressList: []
         };
         this.addressService = new AddressService();
@@ -37,7 +38,8 @@ class Layout extends Component {
         const options = [
             { label: 'Native', value: 'nt' },
             { label: 'PrimeReact', value: 'pr' },
-            { label: 'React MD', value: 'md' }
+            { label: 'React MD', value: 'md' },
+            { label: 'Semantic UI', value: 'sui' }
         ];
 
         let dataTable = "";
@@ -55,6 +57,11 @@ class Layout extends Component {
             dataTable =
                 <div>
                     <MdAddressList addressList={this.state.addressList} />
+                </div>
+        } else if (this.state.mode === 'sui') {
+            dataTable =
+                <div>
+                    <SuiAddressList addressList={this.state.addressList} />
                 </div>
         }
 
