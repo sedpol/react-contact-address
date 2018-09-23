@@ -15,7 +15,8 @@ const detail = (props) => {
 
                     You should send a brochure 2 times a month, her/his address is <strong>{props.data.address.suite}, {props.data.address.street} st. {props.data.address.city}, postcode: {props.data.address.zipcode}</strong>.
                 </td>
-            </tr>
+            </tr>            
+            <button onClick={props.hideDetail} >cancel</button>
         </tbody>
     );
 }

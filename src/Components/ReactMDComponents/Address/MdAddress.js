@@ -17,16 +17,16 @@ class MdAddress extends Component {
             <Auxiliary>
 
                 <TableRow key={this.props.key}>
-                    <TableColumn>{this.props.address.username}</TableColumn>
-                    <TableColumn>{this.props.address.name}</TableColumn>
-                    <TableColumn>{this.props.address.email}</TableColumn>
-                    <TableColumn>{this.props.address.phone}</TableColumn>
-                    <TableColumn>{this.props.address.website}</TableColumn>
                     <TableColumn>
                         <Button raised onClick={this.handleShowDialog}>
                             Detail
                             </Button>
                     </TableColumn>
+                    <TableColumn>{this.props.address.username}</TableColumn>
+                    <TableColumn>{this.props.address.name}</TableColumn>
+                    <TableColumn>{this.props.address.email}</TableColumn>
+                    <TableColumn>{this.props.address.phone}</TableColumn>
+                    <TableColumn>{this.props.address.website}</TableColumn>
                 </TableRow>
             </Auxiliary>
         );

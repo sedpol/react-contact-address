@@ -19,6 +19,12 @@ class AddressList extends Component {
         });
     }
 
+    hideDetailHandler = () => {
+        this.setState({
+            detail: null
+        });
+    }
+
     render() {
         return (
             <Auxiliary>
@@ -26,7 +32,7 @@ class AddressList extends Component {
                     <h1 style={{ textAlign: 'center'}} >Customer Address List</h1>
                 </div>
                 <table style={{ borderCollapse: 'collapse', width: '100%' }} >
-                    <Detail data={this.state.detail} showDetail={this.state.showDetail} />
+                    <Detail data={this.state.detail} hideDetail = {this.hideDetailHandler} />
                 </table>
                 <table style={{ borderCollapse: 'collapse', width: '100%' }} >
                     <Header />

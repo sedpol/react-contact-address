@@ -37,6 +37,10 @@ class MdAddressList extends Component {
 
         return (
             <Auxiliary>
+
+                <div className='content-section introduction'>
+                    <h1 style={{ textAlign: 'center' }} >Customer Address List</h1>
+                </div>
                 <div>
                     <DialogContainer
                         id="simple-list-dialog"
@@ -47,14 +51,14 @@ class MdAddressList extends Component {
                             (this.state.address !== null && this.state.address !== undefined) ?
                                 (
 
-                                    <Card style={{maxWidth: 800}} className="md-block-centered">
+                                    <Card style={{ maxWidth: 800 }} className="md-block-centered">
                                         <CardTitle title={this.state.address.username} subtitle="" />
                                         <CardText>
-                                            <p> Our user <strong>{this.state.address.username}</strong>, whose name is 
+                                            <p> Our user <strong>{this.state.address.username}</strong>, whose name is
                                                 <strong>{this.state.address.name}</strong>,  works at <strong>{this.state.address.company.name}</strong>.
-                                                You should call <strong>{this.state.address.name}</strong> at 
-                                                <strong>{this.state.address.phone} </strong> or send email to <strong>{this.state.address.email}</strong> 
-                                                 to give more information about membership.
+                                                You should call <strong>{this.state.address.name}</strong> at
+                                                <strong>{this.state.address.phone} </strong> or send email to <strong>{this.state.address.email}</strong>
+                                                to give more information about membership.
                                             </p>
                                             <p>
                                                 You should send a brochure 2 times a month, her/his address is <strong>{this.state.address.address.suite}, {this.state.address.address.street} st. {this.state.address.address.city}, postcode: {this.state.address.address.zipcode}</strong>.

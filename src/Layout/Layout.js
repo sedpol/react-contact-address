@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
-import { ToggleButton } from 'primereact/togglebutton';
+import { SelectButton } from 'primereact/selectbutton';
 import Auxiliary from '../hoc/Auxiliary';
 import Address from '../Components/PrimeComponents/Address';
 import AddressList from '../Components/NativeComponents/AddressList';
@@ -14,7 +14,7 @@ class Layout extends Component {
     constructor() {
         super();
         this.state = {
-            primeMode: true,
+            mode: 'nt',
             addressList: []
         };
         this.addressService = new AddressService();
@@ -33,30 +33,46 @@ class Layout extends Component {
     }
 
     render() {
+
+        const options = [
+            { label: 'Native', value: 'nt' },
+            { label: 'PrimeReact', value: 'pr' },
+            { label: 'React MD', value: 'md' }
+        ];
+
+        let dataTable = "";
+        if (this.state.mode === 'nt') {
+            dataTable =
+                <div>
+                    <AddressList addressList={this.state.addressList} />
+                </div>
+        } else if (this.state.mode === 'pr') {
+            dataTable =
+                <div >
+                    <Address addressList={this.state.addressList} />
+                </div>
+        } else if (this.state.mode === 'md') {
+            dataTable =
+                <div>
+                    <MdAddressList addressList={this.state.addressList} />
+                </div>
+        }
+
+
         return (
             <Auxiliary>
 
                 <div>
-                    <ToggleButton onLabel='PrimeReact Mode On' offLabel='PrimeReact Mode Off'
-                        style={{ width: '200px' }}
+                    <SelectButton
+                        style={{ width: '600px' }}
+                        value={this.state.mode}
+                        options={options}
                         checked={this.state.primeMode}
-                        onChange={(e) => this.setState({ primeMode: e.value })} />
-                </div>
-
-                <div>
-                    <MdAddressList addressList={this.state.addressList} />
+                        onChange={(e) => this.setState({ mode: e.value })} />
                 </div>
 
                 {
-                    this.state.primeMode
-                        ?
-                        <div>
-                            <Address addressList={this.state.addressList} />
-                        </div>
-                        :
-                        <div >
-                            <AddressList addressList={this.state.addressList} />
-                        </div>
+                    dataTable
                 }
             </Auxiliary>
         );
