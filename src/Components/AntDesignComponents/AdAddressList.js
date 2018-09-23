@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import { Table } from 'antd';
 import AddressDetail from '../Common/AddressDetail';
+import Auxiliary from '../../hoc/Auxiliary';
+import TableTitle from '../Common/TableTitle';
 
 class AdAddressList extends Component {
 
@@ -14,12 +16,15 @@ class AdAddressList extends Component {
             { title: 'Web Address', dataIndex: 'website', key: 'website' }
         ];
         return (
-            <Table
-                columns={columns}
-                dataSource={this.props.addressList}
-                expandedRowRender = {record => <AddressDetail data = {record}/>}
-            >
-            </Table>
+            <Auxiliary>
+                <TableTitle/>
+                <Table
+                    columns={columns}
+                    dataSource={this.props.addressList}
+                    expandedRowRender={record => <AddressDetail data={record} />}
+                >
+                </Table>
+            </Auxiliary>
         );
     }
 }
