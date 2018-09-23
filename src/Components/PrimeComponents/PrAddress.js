@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-class Address extends Component {
+class PrAddress extends Component {
 
     constructor() {
         super();
@@ -58,4 +58,4 @@ class Address extends Component {
     }
 }
 
-export default Address;
+export default PrAddress;

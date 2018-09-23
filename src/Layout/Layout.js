@@ -4,7 +4,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { SelectButton } from 'primereact/selectbutton';
 import Auxiliary from '../hoc/Auxiliary';
-import Address from '../Components/PrimeComponents/Address';
+import PrAddress from '../Components/PrimeComponents/PrAddress';
 import AddressList from '../Components/NativeComponents/AddressList';
 import MdAddressList from '../Components/ReactMDComponents/MdAddressList';
 import { AddressService } from '../Services/AddressServices';
@@ -49,7 +49,7 @@ class Layout extends Component {
         } else if (this.state.mode === 'pr') {
             dataTable =
                 <div >
-                    <Address addressList={this.state.addressList} />
+                    <PrAddress addressList={this.state.addressList} />
                 </div>
         } else if (this.state.mode === 'md') {
             dataTable =
