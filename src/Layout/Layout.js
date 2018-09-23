@@ -6,14 +6,30 @@ import { ToggleButton } from 'primereact/togglebutton';
 import Auxiliary from '../hoc/Auxiliary';
 import Address from '../Components/PrimeComponents/Address';
 import AddressList from '../Components/NativeComponents/AddressList';
+import MdAddressList from '../Components/ReactMDComponents/MdAddressList';
+import { AddressService } from '../Services/AddressServices';
 
 class Layout extends Component {
 
     constructor() {
         super();
         this.state = {
-            primeMode: true
+            primeMode: true,
+            addressList: []
         };
+        this.addressService = new AddressService();
+    }
+
+    componentDidMount() {
+        this.addressService.getAllAddresses()
+            .then(response => {
+                this.setState({
+                    addressList: response
+                })
+            }).catch(error => {
+                console.log(error);
+            });
+
     }
 
     render() {
@@ -27,15 +43,19 @@ class Layout extends Component {
                         onChange={(e) => this.setState({ primeMode: e.value })} />
                 </div>
 
+                <div>
+                    <MdAddressList addressList={this.state.addressList} />
+                </div>
+
                 {
                     this.state.primeMode
                         ?
                         <div>
-                            <Address />
+                            <Address addressList={this.state.addressList} />
                         </div>
                         :
                         <div >
-                            <AddressList />
+                            <AddressList addressList={this.state.addressList} />
                         </div>
                 }
             </Auxiliary>

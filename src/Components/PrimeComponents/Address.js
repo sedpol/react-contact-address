@@ -2,29 +2,13 @@ import React, { Component } from 'react';
 
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { AddressService } from '../../Services/AddressServices';
 class Address extends Component {
 
     constructor() {
         super();
         this.state = {
-            addresses: null
+            expandedRows:null
         };
-        this.addressService = new AddressService();
-    }
-
-    componentDidMount() {
-        if (this.state.addresses === null) {
-            this.addressService.getAllAddresses()
-                .then(response => {
-
-                    this.setState({
-                        addresses: response
-                    })
-                }).catch(error => {
-                    console.log(error);
-                });
-        }
     }
 
     rowExpansionTemplate(data) {
@@ -54,7 +38,7 @@ class Address extends Component {
 
                 <div>
                     <DataTable
-                        value={this.state.addresses}
+                        value={this.props.addressList}
                         expandedRows={this.state.expandedRows}
                         onRowToggle={(e) => this.setState({ expandedRows: e.data })}
                         rowExpansionTemplate={this.rowExpansionTemplate}>
