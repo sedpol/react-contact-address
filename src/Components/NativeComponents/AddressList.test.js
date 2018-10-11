@@ -9,7 +9,7 @@ configure({adapter: new Adapter()});
 
 describe ('<AddressList/> ', () => {
 
-    it ('should return no <Address/> when addresses is empty! ', ()=>{
+    it ('should return no <Address/> when addressList is empty! ', ()=>{
         const wrapper = shallow(<AddressList addressList = {[]}/>);
 
         expect(wrapper.find(Address)).toHaveLength(0);
