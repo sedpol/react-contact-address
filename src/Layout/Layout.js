@@ -16,7 +16,7 @@ class Layout extends Component {
     constructor() {
         super();
         this.state = {
-            mode: 'ad',
+            mode: 'nt',
             addressList: []
         };
         this.addressService = new AddressService();
