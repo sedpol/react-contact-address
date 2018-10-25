@@ -3,10 +3,15 @@ import classes from './Address.css'
 import Auxiliary from '../../../hoc/Auxiliary';
 const address = (props) => {
 
+    let style = null;
+    if (props.address.selected) {
+        style = {backgroundColor: '#cccccc' };
+    }
+    console.log(style);
     return (
         <Auxiliary>
             <tbody className={classes.Address}>
-                <tr>
+                <tr style={ style}>
                     <td style={{ width: '4em' }} > <button onClick={props.clicked}>Detail</button></td>
                     <td style={{ width: '10em' }} >{props.address.username}</td>
                     <td style={{ width: '10em' }} >{props.address.name} </td>
