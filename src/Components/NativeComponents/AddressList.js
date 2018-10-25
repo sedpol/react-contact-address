@@ -15,7 +15,7 @@ class AddressList extends Component {
     showDetailHandler(id) {
 
         this.props.addressList.map(add => {
-            add.selected = false;
+            return add.selected = false;
         });
 
         const address = this.props.addressList[id];
@@ -30,7 +30,7 @@ class AddressList extends Component {
 
     hideDetailHandler = () => {
         this.props.addressList.map(address => {
-            address.selected = false;
+            return address.selected = false;
         });
 
         this.setState({

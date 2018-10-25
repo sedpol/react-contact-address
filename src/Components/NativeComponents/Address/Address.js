@@ -7,7 +7,7 @@ const address = (props) => {
     if (props.address.selected) {
         style = {backgroundColor: '#cccccc' };
     }
-    console.log(style);
+
     return (
         <Auxiliary>
             <tbody className={classes.Address}>
